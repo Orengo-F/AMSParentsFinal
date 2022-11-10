@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attachment</title>
+</head>
+<body>
+    <h1>Registration</h1>
+
+
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">Email</label>
+        <input type="email" name="username" id="username" Required>
+        <br>
+
+        <label for="">First Name</label>
+        <input type="text" name="fname" id="fname" Required>
+        <br>
+
+        <label for="">Last Name</label>
+        <input type="text" name="lname" id="lname" Required>
+        <br>
+
+
+
+        <label for="">Password</label>
+        <input type="password" name="password" id="password" Required>
+        <br>
+
+        <button type="submit">Register</button>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'strathmore.css' %}">
+    <title>AMS</title>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-content-nav">
+            <div id="paramNavigationMenu">
+                <ul class="navigation-menu">
+                    <li class="link-item">
+                        <a class="internal" alt="Dashboard" href="shome">Home Page</a></li>
+        <li class="link-item"><a class="internal" alt="My Details" href="sstudentdetails">Student Details</a></li>
+        <li class="link-item"><a class="internal" alt="View Class Attendance records" href="sattendance">Attendance</a></li>
+        <li class="link-item"><a class="internal" alt="Progress Report thus far" href="spreport">Progress Report</a></li>
+        <li class="link-item"><a class="internal" alt="Download Fee Structures" href="sfeestructure">Fee Structures</a></li>
+        <li class="link-item"><a class="internal" alt="Fee Statement" href="sfeestatement">Fees Statement</a></li>
+        <li class="link-item"><a class="internal" alt="Pay Fees" href="spayfee">Pay Fees</a></li>
+        <li class="link-item"><a class="internal" alt="Log out of the system" href="strathmorelogin">Log Out</a></li></ul></div></div>
+            <div style="clear: both;"></div>
+            <div class="page-content-main"><div style="color: grey; size: 6px;"><span align="center">Best viewed with 
+                        <a href="http://www.mozilla.org/en-US/firefox" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/firefox-logo.jpg" width="25" height="25" title="Mozila Firefox" border="0"></a><a href="https://www.google.com/chrome/?hl=en&amp;brand=chmo" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/chrome-logo.jpg" width="35" height="25" title="Google Chrome" border="0"></a></span><span align="center">
+                        Download the <font color="green"><b> myStrath </b></font> mobile app from the Android Play Store or Apple App Store to view your childs details on the go. 
+                    </span><span id="paramStudentDetails" align="right" style="float: right;">{{ user.first_name }} {{ user.last_name }}</span></div>
+                    <div id="page-content-box">
+
+                            <div class="mycontents">
+<head>
+    <title>Fees Statement</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+h2 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<h2>Fee Statement</h2>
+
+<table style="width:80%" class="center">
+  <tr>
+    <th>Date</th>
+    <th>Document number</th>
+    <th>Document type</th>
+    <th>Debit</th>
+    <th>Credit</th>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date1 }}</td>
+    <td>{{ user_statement.dno1 }}</td>
+    <td>{{ user_statement.dtype1 }}</td>
+    <td>{{ user_statement.debit1 }}</td>
+    <td>{{ user_statement.credit1 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date2 }}</td>
+    <td>{{ user_statement.dno2 }}</td>
+    <td>{{ user_statement.dtype2 }}</td>
+    <td>{{ user_statement.debit2 }}</td>
+    <td>{{ user_statement.credit2 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date3 }}</td>
+    <td>{{ user_statement.dno3 }}</td>
+    <td>{{ user_statement.dtype3 }}</td>
+    <td>{{ user_statement.debit3 }}</td>
+    <td>{{ user_statement.credit3 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date4 }}</td>
+    <td>{{ user_statement.dno4 }}</td>
+    <td>{{ user_statement.dtype4 }}</td>
+    <td>{{ user_statement.debit4 }}</td>
+    <td>{{ user_statement.credit4 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date5 }}</td>
+    <td>{{ user_statement.dno5 }}</td>
+    <td>{{ user_statement.dtype5 }}</td>
+    <td>{{ user_statement.debit5 }}</td>
+    <td>{{ user_statement.credit5 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date6 }}</td>
+    <td>{{ user_statement.dno6 }}</td>
+    <td>{{ user_statement.dtype6 }}</td>
+    <td>{{ user_statement.debit6 }}</td>
+    <td>{{ user_statement.credit5 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date7 }}</td>
+    <td>{{ user_statement.dno7 }}</td>
+    <td>{{ user_statement.dtype7 }}</td>
+    <td>{{ user_statement.debit7 }}</td>
+    <td>{{ user_statement.credit7 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date8 }}</td>
+    <td>{{ user_statement.dno8 }}</td>
+    <td>{{ user_statement.dtype8 }}</td>
+    <td>{{ user_statement.debit8 }}</td>
+    <td>{{ user_statement.credit8 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date9 }}</td>
+    <td>{{ user_statement.dno9 }}</td>
+    <td>{{ user_statement.dtype9 }}</td>
+    <td>{{ user_statement.debit9 }}</td>
+    <td>{{ user_statement.credit9 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date10 }}</td>
+    <td>{{ user_statement.dno10 }}</td>
+    <td>{{ user_statement.dtype10 }}</td>
+    <td>{{ user_statement.debit10 }}</td>
+    <td>{{ user_statement.credit10 }}</td>
+  </tr>
+  <tr>
+    <td>{{ user_statement.date11 }}</td>
+    <td>{{ user_statement.dno11 }}</td>
+    <td>{{ user_statement.dtype11 }}</td>
+    <td>{{ user_statement.debit11 }}</td>
+    <td>{{ user_statement.credit11 }}</td>
+  </tr>
+</table>
+
+</body>
+
+                            </div>
+                        
+                        </div></div>
+                           
+</body>
+</html>
+

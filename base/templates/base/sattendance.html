@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'strathmore.css' %}">
+    <title>AMS</title>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-content-nav">
+            <div id="paramNavigationMenu">
+                <ul class="navigation-menu">
+                    <li class="link-item">
+                        <a class="internal" alt="Dashboard" href="shome">Home Page</a></li>
+        <li class="link-item"><a class="internal" alt="My Details" href="sstudentdetails">Student Details</a></li>
+        <li class="link-item"><a class="internal" alt="View Class Attendance records" href="sattendance">Attendance</a></li>
+        <li class="link-item"><a class="internal" alt="Progress Report thus far" href="spreport">Progress Report</a></li>
+        <li class="link-item"><a class="internal" alt="Download Fee Structures" href="sfeestructure">Fee Structures</a></li>
+        <li class="link-item"><a class="internal" alt="Fee Statement" href="sfeestatement">Fees Statement</a></li>
+        <li class="link-item"><a class="internal" alt="Pay Fees" href="spayfee">Pay Fees</a></li>
+        <li class="link-item"><a class="internal" alt="Log out of the system" href="strathmorelogin">Log Out</a></li></ul></div></div>
+            <div style="clear: both;"></div>
+            <div class="page-content-main"><div style="color: grey; size: 6px;"><span align="center">Best viewed with 
+                        <a href="http://www.mozilla.org/en-US/firefox" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/firefox-logo.jpg" width="25" height="25" title="Mozila Firefox" border="0"></a><a href="https://www.google.com/chrome/?hl=en&amp;brand=chmo" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/chrome-logo.jpg" width="35" height="25" title="Google Chrome" border="0"></a></span><span align="center">
+                        Download the <font color="green"><b> myStrath </b></font> mobile app from the Android Play Store or Apple App Store to view your childs details on the go. 
+                    </span><span id="paramStudentDetails" align="right" style="float: right;">{{ user.first_name }} {{ user.last_name }}</span></div>
+                    <div id="page-content-box">
+
+                            <div class="mycontents">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+</head>
+<body>
+    <h2>Units being undertaken</h2>
+    <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+h2 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<table class="center" style="width:50% ;">
+  <tr>
+    <th>1.</th>
+    <td>{{user_attendance.unit1}}</td>
+    <td>{{user_attendance.att1}}</td>
+  </tr>
+  <tr>
+    <th>2.</th>
+    <td>{{user_attendance.unit2}}</td>
+    <td>{{user_attendance.att2}}</td>
+  </tr>
+  <tr>
+    <th>3.</th>  
+    <td>{{user_attendance.unit3}}</td>
+    <td>{{user_attendance.att3}}</td>
+  </tr>
+  <tr>
+    <th>4.</th>
+    <td>{{user_attendance.unit4}}</td>
+    <td>{{user_attendance.att4}}</td>
+  </tr>
+  <tr>
+    <th>5.</th>
+    <td>{{user_attendance.unit5}}</td>
+    <td>{{user_attendance.att5}}</td>
+  </tr>
+  <tr>
+    <th>6.</th>  
+    <td>{{user_attendance.unit6}}</td>
+    <td>{{user_attendance.att6}}</td>
+  </tr>
+  <tr>
+    <th>7.</th>  
+    <td>{{user_attendance.unit7}}</td>
+    <td>{{user_attendance.att7}}</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+</body>
+
+                            </div>
+                        
+                      
+</body>
+</html>
+

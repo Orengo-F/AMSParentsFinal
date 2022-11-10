@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'strathmore.css' %}">
+    <title>AMS</title>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-content-nav">
+            <div id="paramNavigationMenu">
+                <ul class="navigation-menu">
+                    <li class="link-item">
+                        <a class="internal" alt="Dashboard" href="shome">Home Page</a></li>
+        <li class="link-item"><a class="internal" alt="My Details" href="sstudentdetails">Student Details</a></li>
+        <li class="link-item"><a class="internal" alt="View Class Attendance records" href="sattendance">Attendance</a></li>
+        <li class="link-item"><a class="internal" alt="Progress Report thus far" href="spreport">Progress Report</a></li>
+        <li class="link-item"><a class="internal" alt="Download Fee Structures" href="sfeestructure">Fee Structures</a></li>
+        <li class="link-item"><a class="internal" alt="Fee Statement" href="sfeestatement">Fees Statement</a></li>
+        <li class="link-item"><a class="internal" alt="Pay Fees" href="spayfee">Pay Fees</a></li>
+        <li class="link-item"><a class="internal" alt="Log out of the system" href="strathmorelogin">Log Out</a></li></ul></div></div>
+            <div style="clear: both;"></div>
+            <div class="page-content-main"><div style="color: grey; size: 6px;"><span align="center">Best viewed with 
+                        <a href="http://www.mozilla.org/en-US/firefox" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/firefox-logo.jpg" width="25" height="25" title="Mozila Firefox" border="0"></a><a href="https://www.google.com/chrome/?hl=en&amp;brand=chmo" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/chrome-logo.jpg" width="35" height="25" title="Google Chrome" border="0"></a></span><span align="center">
+                        Download the <font color="green"><b> myStrath </b></font> mobile app from the Android Play Store or Apple App Store to view your childs details on the go. 
+                    </span><span id="paramStudentDetails" align="right" style="float: right;">{{ user.first_name }} {{ user.last_name }}</span></div>
+                    <div id="page-content-box">
+                        <div align="center" style="margin-top: 10px;">
+                            <div class="mycontents">
+<head>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            </style>
+
+<table class="table">
+    <tbody>
+
+        <tr>
+            <td class="subhead">Student No:</td>
+            <td><span>{{user_profile.id_user}}</span></td></tr>
+            <tr><td class="subhead">Surname:</td>
+                <td><span>{{user_profile.username}}</span></td></tr>
+                <tr><td class="subhead">Other Names:</td>
+                    <td><span>{{ user.first_name }}</span></td></tr>
+                    <tr><td class="subhead">Date Of Birth:</td><td>
+                        <span>{{user_profile.dob}}</span></td></tr><tr><td class="subhead">Mobile Phone No:</td><td><span>{{user_profile.mno}}</span></td></tr>
+                        <tr><td class="subhead">Email Address:</td><td><span>{{user_profile.email}}</span></td></tr><tr><td class="subhead">Previous School:</td>
+                            <td><span>{{user_profile.pschool}}</span></td></tr><tr><td class="subhead">Religion:</td><td><span>{{user_profile.religion}}</span></td></tr></tbody></table>
+
+</div></div><div class="row"></div><h2>Academic Programmes</h2><div><div id="sectionPrograms">
+</div><table class="table"><tbody><tr><th>Programme</th><th>Syllabus</th><th>Status</th><th>Intake</th><th></th></tr><tr class="table-row">
+
+<tr class="odd"><td><span>{{ user_programmes.programmme }}</span></td><td><span>{{ user_programmes.syllabus}}</span></td><td><span>{{ user_programmes.status}}</span></td><td><span>{{ user_programmes.intake}}</span></td>
+                        </a> | 
+
+<tr class="table-row">
+                        </a> | 
+    
+
+</tbody></table></div><div class="row"></div><div id="sectionMentoring"><h2>Mentoring </h2><div><div id="sectionMentor">
+</div><table class="table"><tbody><tr><th>Current Mentor</th><th>Mentor's Email</th><th>Date Last seen</th></tr><tr class="odd"><td><span>{{ user_mentoring.cmentor }}</span></td><td><a href="mailto:{{ user_mentoring.memail }}">{{ user_mentoring.memail }}</a></td><td><span>{{ user_mentoring.dls }}</span></td><td>
+
+
+</tbody></table></div></div></div>
+
+</div><div align="center" style="color: grey; size: 6px;"> 
+                    <script type="text/javascript">                    
+                    </script>
+    </div></div><div class="colorbox-div"></div></div><script type="text/javascript">          $(document).ready(function(){
+                // Rollup all menus
+                $("li.folder-item ul").css("display", "none");
+                
+                // Toggle the display of the menu
+                $("li.folder-item > a").click(function(){
+                    // Get the parent element
+                    var parentElement = $(this).parent("li");
+                    
+                    if ($(parentElement).hasClass("closed-folder")) {
+                        $(parentElement).removeClass("closed-folder");
+                        $(parentElement).addClass("open-folder");
+                        $(parentElement).children("ul").css("display", "block");
+                    } else if ($(parentElement).hasClass("open-folder")) {
+                        $(parentElement).removeClass("open-folder");
+                        $(parentElement).addClass("closed-folder");
+                        $(parentElement).children("ul").css("display", "none");
+                    }
+                });
+                
+                $("li.link-item a.internal").click(function(){
+                    showPreloader(); //alert('href='+$(this).attr("href"));return;
+                    $.post($(this).attr("href"), {Command: "DEFAULT"}, function(response){
+                        if (typeof(response) != 'undefined' && response != "") {
+                            // Delay display of content
+                            setTimeout(function() {
+                                    $("#page-content-box").html(response);
+                                }, 800);
+                        }
+                    });
+                    
+                    return false;
+                });
+                
+                showPreloader();
+                // Load the dashboard content 
+                setTimeout(function() {
+                    $.post('./Dashboard.html', {Command: "LOAD"}, function(response){
+                        if (typeof(response) != 'undefined' && response != '') {
+                            $("#page-content-box").html(response);
+                            
+                            // Style the data
+                            $("[class=table-row]:odd").attr("class", "odd");
+                        }
+                    });
+                }, 800);
+            });
+            
+            function showPreloader() {
+                // Preloader 
+                $("#page-content-box").html("<div align=\"center\" style=\"margin-top: 150px;\">" +
+                    "<img src=\""+BASE_PATH+"/images/fbox-loading.gif\" border=\"0\">" + 
+                    "<h1 style=\"color: #000000; font-family: arial,sans-serif;\">Loading content...</h1></div>");
+            }
+            
+            //edit by solembo - validate mentor feedback before saving
+            function validateInput(element){
+                    alert("Saving your feedback ...");
+                    //onclick disable button
+                    $(element).attr('disabled',true);
+                }
+        </script>
+
+    </body>
+
+                            </div>
+                        
+                        </div></div>
+                            <div align="center" style="color: grey; size: 6px;"> 
+                    <script type="text/javascript">                     
+                    </script>
+                </div></div><div class="colorbox-div"></div></div>
+</body>
+</html>
+

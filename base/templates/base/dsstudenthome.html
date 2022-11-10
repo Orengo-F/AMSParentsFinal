@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attachment</title>
+</head>
+<body>
+    <h1>Registration</h1>
+
+
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">Admission</label>
+        <input type="number" name="username" id="username" Required>
+        <br>
+
+        <label for="">Surname</label>
+        <input type="text" name="fname" id="fname" Required>
+        <br>
+
+        <label for="">Other Name</label>
+        <input type="text" name="lname" id="lname" Required>
+        <br>
+
+        <label for="">Email Address</label>
+        <input type="email" name="email" id="email" Required>
+        <br>
+
+        <label for="">DOB</label>
+        <input type="text" name="lname" id="dob" Required>
+        <br>
+        <label for="">Mobile no</label>
+        <input type="number" name="lname" id="mno" Required>
+        <br>
+        <label for="">Previous School</label>
+        <input type="text" name="lname" id="pschool" Required>
+        <br>
+        <label for="">Religion</label>
+        <input type="text" name="lname" id="religion" Required>
+        <br>
+
+
+        <button type="submit">Register</button>
+
+    </form>
+</body>
+</html>
