@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>AMS</title>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-content-nav">
+            <div id="paramNavigationMenu">
+                <ul class="navigation-menu">
+                    <li class="link-item">
+                        <a class="internal" alt="Dashboard" href="dhome">Home Page</a></li>
+                        <li class="link-item"><a class="internal" alt="My Details" href="dstudentdetails">Student Details</a></li>
+                        <li class="link-item"><a class="internal" alt="View Class Attendance records" href="dattendance">Attendance</a></li>
+                        <li class="link-item"><a class="internal" alt="Progress Report thus far" href="dpreport">Progress Report</a></li>
+                        <li class="link-item"><a class="internal" alt="Download Fee Structures" href="dfstructure">Fee Structures</a></li>
+                        <li class="link-item"><a class="internal" alt="Fee Statement" href="dfstatement">Fees Statement</a></li>
+                        <li class="link-item"><a class="internal" alt="Pay Fees" href="dpfee">Pay Fees</a></li>
+                        <li class="link-item"><a class="internal" alt="Log out of the system" href="daystar">Log Out</a></li></ul></div></div>
+            <div style="clear: both;"></div>
+            <div class="page-content-main"><div style="color: grey; size: 6px;"><span align="center">Best viewed with 
+                        <a href="http://www.mozilla.org/en-US/firefox" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/firefox-logo.jpg" width="25" height="25" title="Mozila Firefox" border="0"></a><a href="https://www.google.com/chrome/?hl=en&amp;brand=chmo" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/chrome-logo.jpg" width="35" height="25" title="Google Chrome" border="0"></a></span><span align="center">
+                        Download the <font color="green"><b> myStrath </b></font> mobile app from the Android Play Store or Apple App Store to view your childs details on the go. 
+                    </span><span id="paramStudentDetails" align="right" style="float: right;">{{ user.first_name }} {{ user.last_name }}</span></div>
+                    <div id="page-content-box">
+
+                            <div class="mycontents">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Report</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+h2 {
+  text-align: center;
+}
+        </style>
+</head>
+<body>
+    <table style="width:90% ;" class="center">
+        <h2>Averages</h2>
+        <tr>
+            <th>Units completed</th>  
+            <td>{{ duser_preport.comp }}</td>
+        </tr>
+        <tr>
+            <th>Average mark</th>  
+            <td>{{ duser_preport.avmark }}</td>
+        </tr>
+        <tr>
+            <th>Specialization</th>  
+            <td>{{ duser_preport.spec }}</td>
+        </tr>
+        <tr>
+            <th>Average grade</th>  
+            <td>{{ duser_preport.avgrad }}</td>
+        </tr>
+
+    </table>
+<h2>Completed Units</h2>
+<table class="center" style="width: 50%;">
+    <tr>
+        <th>1.</th>  
+        <td>{{ duser_preport.unit1 }}</td>
+        <td>{{ duser_preport.att1 }}</td>
+    </tr>
+        <tr>
+        <th>2.</th>  
+        <td>{{ duser_preport.unit2 }}</td>
+        <td>{{ duser_preport.att2 }}</td>
+    </tr>
+    <tr>
+        <th>3.</th>  
+        <td>{{ duser_preport.unit3 }}</td>
+        <td>{{ duser_preport.att3 }}</td>
+    </tr>
+    <tr>
+        <th>4.</th>  
+        <td>{{ duser_preport.unit4 }}</td>
+        <td>{{ duser_preport.att4 }}</td>
+    </tr>
+    <tr>
+        <th>5.</th>  
+        <td>{{ duser_preport.unit5 }}</td>
+        <td>{{ duser_preport.att5 }}</td>
+    </tr>
+    <tr>
+        <th>6.</th>  
+        <td>{{ duser_preport.unit6 }}</td>
+        <td>{{ duser_preport.att6 }}</td>
+    </tr>
+    <tr>
+        <th>7.</th>  
+        <td>{{ duser_preport.unit7 }}</td>
+        <td>{{ duser_preport.att7 }}</td>
+    </tr>
+    <tr>
+        <th>8.</th>  
+        <td>{{ duser_preport.unit8 }}</td>
+        <td>{{ duser_preport.att8 }}</td>
+    </tr>
+    <tr>
+        <th>9.</th>  
+        <td>{{ duser_preport.unit9 }}</td>
+        <td>{{ duser_preport.att9 }}</td>
+    </tr>
+    <tr>
+        <th>10.</th>  
+        <td>{{ duser_preport.unit10 }}</td>
+        <td>{{ duser_preport.att10}}</td>
+    </tr>
+    <tr>
+        <th>11.</th>  
+        <td>{{ duser_preport.unit11}}</td>
+        <td>{{ duser_preport.att11 }}</td>
+    </tr>
+    <tr>
+        <th>12.</th>  
+        <td>{{ duser_preport.unit12 }}</td>
+        <td>{{ duser_preport.att12 }}</td>
+    </tr>
+    <tr>
+        <th>13.</th>  
+        <td>{{ duser_preport.unit13 }}</td>
+        <td>{{ duser_preport.att13 }}</td>
+    </tr>
+    <tr>
+        <th>14.</th>  
+        <td>{{ duser_preport.unit14 }}</td>
+        <td>{{ duser_preport.att14 }}</td>
+    </tr>
+    <tr>
+        <th>15.</th>  
+        <td>{{ duser_preport.unit15 }}</td>
+        <td>{{ duser_preport.att15 }}</td>
+    </tr>
+    <tr>
+        <th>16.</th>  
+        <td>{{ duser_preport.unit16 }}</td>
+        <td>{{ duser_preport.att16 }}</td>
+    </tr>
+    <tr>
+        <th>17.</th>  
+        <td>{{ duser_preport.unit17 }}</td>
+        <td>{{ duser_preport.att17 }}</td>
+    </tr>
+    <tr>
+        <th>18.</th>  
+        <td>{{ duser_preport.unit18 }}</td>
+        <td>{{ duser_preport.att18 }}</td>
+    </tr>
+    <tr>
+        <th>19.</th>  
+        <td>{{ duser_preport.unit19 }}</td>
+        <td>{{ duser_preport.att19 }}</td>
+    </tr>
+    <tr>
+        <th>20.</th>  
+        <td>{{ duser_preport.unit20 }}</td>
+        <td>{{ duser_preport.att20 }}</td>
+    </tr>
+    <tr>
+        <th>21.</th>  
+        <td>{{ duser_preport.unit21 }}</td>
+        <td>{{ duser_preport.att21 }}</td>
+    </tr>
+   
+
+</table>
+<h2>Pending units</h2>
+<table class="center" style="width: 50%;">
+    <tr>
+        <th>1.</th>  
+        <td>{{ duser_preport.pend1 }}</td>
+    </tr>
+    <tr>
+        <th>2.</th>  
+        <td>{{ duser_preport.pend2 }}</td>
+    </tr>
+    <tr>
+        <th>3.</th>  
+        <td>{{ duser_preport.pend3 }}</td>
+    </tr>
+    <tr>
+        <th>4.</th>  
+        <td>{{ duser_preport.pend4 }}</td>
+    </tr>
+
+</table>
+<h2>Exemptions</h2>
+<table class="center" style="width: 50%;">
+    <tr>
+        <th>1.</th>  
+        <td>{{ duser_preport.exem1 }}</td>
+    </tr>
+    <tr>
+        <th>2.</th>  
+        <td>{{ duser_preport.exem2 }}</td>
+    </tr>
+    <tr>
+        <th>3.</th>  
+        <td>{{ duser_preport.exem3 }}</td>
+    </tr>
+    
+
+</table>
+
+</body>
+
+                            </div>
+                        
+                        </div></div>
+                           
+</body>
+</html>
+

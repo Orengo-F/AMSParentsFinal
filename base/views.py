@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from os import path
-from .models import Studenthome, Aprogrammes, Mentoring,SandPdetails,Attendance,Fstatement,PReport
+from django.contrib.auth.decorators import login_required
+from .models import Studenthome, Aprogrammes, Mentoring,SandPdetails,Attendance,Fstatement,PReport,dStudenthome, dAprogrammes, dMentoring,dSandPdetails,dAttendance,dFstatement,dPReport
 
 
 # Create your views here.
@@ -37,7 +38,7 @@ def strathmorelogin(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('strathmore')
+            return redirect('shome')
         else:
             messages.info(request, 'Invalid Credentials ')
             return redirect('strathmorelogin')
@@ -48,8 +49,23 @@ def strathmorelogin(request):
 
 
 def daystar(request):
-    return render(request,'base/daystar.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
 
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('dhome')
+        else:
+            messages.info(request, 'Invalid Credentials ')
+            return redirect('daystar')
+            
+
+    else:
+        return render(request,'base/daystar.html')
+@login_required(login_url='strathmorelogin')
 def shome(request):
     user_object = User.objects.get(username=request.user.username)
     user_profile = Studenthome.objects.get(user=user_object) 
@@ -87,3 +103,44 @@ def spayfee(request):
 
 def dsstudenthome(request):
     return render(request,'base/dsstudenthome.html')
+
+def dfstructure(request):
+    return render(request,'base/dfstructure.html')
+
+def dattendance(request):
+    user_object = User.objects.get(username=request.user.username)
+    duser_attendance = dAttendance.objects.get(user=user_object) 
+    return render(request,'base/dattendance.html',{'duser_attendance': duser_attendance})
+
+
+def dfstatement(request):
+    user_object = User.objects.get(username=request.user.username)
+    duser_statement = dFstatement.objects.get(user=user_object) 
+    return render(request,'base/dfstatement.html',{'duser_statement': duser_statement})
+
+
+def dhome(request):
+    user_object = User.objects.get(username=request.user.username)
+    duser_profile = dStudenthome.objects.get(user=user_object) 
+    duser_programmes = dAprogrammes.objects.get(user=user_object)
+    duser_mentoring = dMentoring.objects.get(user=user_object) 
+
+
+    return render(request,'base/dhome.html',{'duser_profile': duser_profile,'duser_programmes': duser_programmes,'duser_mentoring':duser_mentoring })
+ 
+
+def dpfee(request):
+    return render(request,'base/dpfee.html')
+
+def dpreport(request):
+    user_object = User.objects.get(username=request.user.username)
+    duser_preport = dPReport.objects.get(user=user_object) 
+    return render(request,'base/dpreport.html',{'duser_preport':duser_preport})
+   
+def dstudentdetails(request):
+    user_object = User.objects.get(username=request.user.username)
+    duser_details = dSandPdetails.objects.get(user=user_object) 
+    return render(request,'base/dstudentdetails.html',{'duser_details': duser_details})
+ 
+
+

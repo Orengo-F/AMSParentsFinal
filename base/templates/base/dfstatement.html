@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>AMS</title>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-content-nav">
+            <div id="paramNavigationMenu">
+                <ul class="navigation-menu">
+                    <li class="link-item">
+                        <a class="internal" alt="Dashboard" href="dhome">Home Page</a></li>
+                        <li class="link-item"><a class="internal" alt="My Details" href="dstudentdetails">Student Details</a></li>
+                        <li class="link-item"><a class="internal" alt="View Class Attendance records" href="dattendance">Attendance</a></li>
+                        <li class="link-item"><a class="internal" alt="Progress Report thus far" href="dpreport">Progress Report</a></li>
+                        <li class="link-item"><a class="internal" alt="Download Fee Structures" href="dfstructure">Fee Structures</a></li>
+                        <li class="link-item"><a class="internal" alt="Fee Statement" href="dfstatement">Fees Statement</a></li>
+                        <li class="link-item"><a class="internal" alt="Pay Fees" href="dpfee">Pay Fees</a></li>
+                        <li class="link-item"><a class="internal" alt="Log out of the system" href="daystar">Log Out</a></li></ul></div></div>
+            <div style="clear: both;"></div>
+            <div class="page-content-main"><div style="color: grey; size: 6px;"><span align="center">Best viewed with 
+                        <a href="http://www.mozilla.org/en-US/firefox" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/firefox-logo.jpg" width="25" height="25" title="Mozila Firefox" border="0"></a><a href="https://www.google.com/chrome/?hl=en&amp;brand=chmo" target="_blank"><img src="https://su-sso.strathmore.edu/web/images/chrome-logo.jpg" width="35" height="25" title="Google Chrome" border="0"></a></span><span align="center">
+                        Download the <font color="green"><b> myStrath </b></font> mobile app from the Android Play Store or Apple App Store to view your childs details on the go. 
+                    </span><span id="paramStudentDetails" align="right" style="float: right;">{{ user.first_name }} {{ user.last_name }}</span></div>
+                    <div id="page-content-box">
+
+                            <div class="mycontents">
+<head>
+    <title>Fees Statement</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+h2 {
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<h2>Fee Statement</h2>
+
+<table style="width:80%" class="center">
+  <tr>
+    <th>Date</th>
+    <th>Document number</th>
+    <th>Document type</th>
+    <th>Debit</th>
+    <th>Credit</th>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date1 }}</td>
+    <td>{{ duser_statement.dno1 }}</td>
+    <td>{{ duser_statement.dtype1 }}</td>
+    <td>{{ duser_statement.debit1 }}</td>
+    <td>{{ duser_statement.credit1 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date2 }}</td>
+    <td>{{ duser_statement.dno2 }}</td>
+    <td>{{ duser_statement.dtype2 }}</td>
+    <td>{{ duser_statement.debit2 }}</td>
+    <td>{{ duser_statement.credit2 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date3 }}</td>
+    <td>{{ duser_statement.dno3 }}</td>
+    <td>{{ duser_statement.dtype3 }}</td>
+    <td>{{ duser_statement.debit3 }}</td>
+    <td>{{ duser_statement.credit3 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date4 }}</td>
+    <td>{{ duser_statement.dno4 }}</td>
+    <td>{{ duser_statement.dtype4 }}</td>
+    <td>{{ duser_statement.debit4 }}</td>
+    <td>{{ duser_statement.credit4 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date5 }}</td>
+    <td>{{ duser_statement.dno5 }}</td>
+    <td>{{ duser_statement.dtype5 }}</td>
+    <td>{{ duser_statement.debit5 }}</td>
+    <td>{{ duser_statement.credit5 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date6 }}</td>
+    <td>{{ duser_statement.dno6 }}</td>
+    <td>{{ duser_statement.dtype6 }}</td>
+    <td>{{ duser_statement.debit6 }}</td>
+    <td>{{ duser_statement.credit5 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date7 }}</td>
+    <td>{{ duser_statement.dno7 }}</td>
+    <td>{{ duser_statement.dtype7 }}</td>
+    <td>{{ duser_statement.debit7 }}</td>
+    <td>{{ duser_statement.credit7 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date8 }}</td>
+    <td>{{ duser_statement.dno8 }}</td>
+    <td>{{ duser_statement.dtype8 }}</td>
+    <td>{{ duser_statement.debit8 }}</td>
+    <td>{{ duser_statement.credit8 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date9 }}</td>
+    <td>{{ duser_statement.dno9 }}</td>
+    <td>{{ duser_statement.dtype9 }}</td>
+    <td>{{ duser_statement.debit9 }}</td>
+    <td>{{ duser_statement.credit9 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date10 }}</td>
+    <td>{{ duser_statement.dno10 }}</td>
+    <td>{{ duser_statement.dtype10 }}</td>
+    <td>{{ duser_statement.debit10 }}</td>
+    <td>{{ duser_statement.credit10 }}</td>
+  </tr>
+  <tr>
+    <td>{{ duser_statement.date11 }}</td>
+    <td>{{ duser_statement.dno11 }}</td>
+    <td>{{ duser_statement.dtype11 }}</td>
+    <td>{{ duser_statement.debit11 }}</td>
+    <td>{{ duser_statement.credit11 }}</td>
+  </tr>
+</table>
+
+</body>
+
+                            </div>
+                        
+                        </div></div>
+                           
+</body>
+</html>
+

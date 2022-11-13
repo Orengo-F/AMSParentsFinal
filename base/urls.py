@@ -17,6 +17,13 @@ urlpatterns = [
     path('sfeestatement',views.sfeestatement,name='sfeestatement'),
     path('spayfee',views.spayfee,name='spayfee'),
     path('dsstudenthome',views.dsstudenthome,name='dsstudenthome'),
+    path('dfstructure',views.dfstructure,name='dfstructure'),
+    path('dattendance',views.dattendance,name='dattendance'),
+    path('dfstatement',views.dfstatement,name='dfstatement'),
+    path('dhome',views.dhome,name='dhome'),
+    path('dpfee',views.dpfee,name='dpfee'),
+    path('dpreport',views.dpreport,name='dpreport'),
+    path('dstudentdetails',views.dstudentdetails,name='dstudentdetails'),
 
     
 ]
