@@ -24,7 +24,11 @@ urlpatterns = [
     path('dpfee',views.dpfee,name='dpfee'),
     path('dpreport',views.dpreport,name='dpreport'),
     path('dstudentdetails',views.dstudentdetails,name='dstudentdetails'),
-
+    path('charge/', views.charge, name="charge"),
+    path('success/<str:args>/', views.successMsg, name="success"),
+    path('index', views.index, name="index"),
+    path('deposit', views.deposit, name="deposit"),
+    path('stkpush/<int:phone>/<int:cost>',views.stkpush,name='stkpush')
     
 ]
 

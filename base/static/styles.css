@@ -30,7 +30,7 @@ h1, h2, h3, h4{
 }
 
 a, a:hover, a:active{
-	color: blue;
+	color: rgb(56, 7, 190);
 	text-decoration: none;
 }
 
@@ -93,7 +93,7 @@ th.parent-header{ border-bottom: 1px solid #FFFFFF; }
 
 th {
 	border: none;
-	background-color: #0400ff;
+	background-color: #2179dd;
 	padding: 3px;
 }
 
@@ -196,7 +196,7 @@ ul.notice li{
 .rightsidebar h3 {
 	background-color: #e5e5e5;
 	font-size: 12px;
-	color: #006699;
+	color: #2c85b1;
 	padding: 10px;
 	margin: 0 0 5px;
 	display: block;

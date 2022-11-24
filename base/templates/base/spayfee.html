@@ -28,9 +28,34 @@
                         Download the <font color="green"><b> myStrath </b></font> mobile app from the Android Play Store or Apple App Store to view your childs details on the go. 
                     </span><span id="paramStudentDetails" align="right" style="float: right;">{{ user.first_name }} {{ user.last_name }}</span></div>
                     <div id="page-content-box">
-                        <div align="center" style="margin-top: 150px;"><img src="https://su-sso.strathmore.edu/web/images/fbox-loading.gif" border="0">
+                        <div align="center" style="margin-top: 150px;">
                             <h1 style="color: #000000; font-family: arial,sans-serif;">Loading content...</h1>
                             <div class="mycontents">
+                                
+                                <form method="post" >
+                                    {% csrf_token %}
+                                <div class="mpesa">
+                                    Amount: <input type="Number" name="amount" id="amount">
+                                    Number: <input type="Number" name="pno" id="pno">
+                                    <button type="submit">PAY</button>
+                                </div>
+                                <img src="{% static 'images/mpesa.png' %}" alt="">
+                            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                             </div>
                         

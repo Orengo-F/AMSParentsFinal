@@ -31,6 +31,14 @@
                         <div align="center" style="margin-top: 150px;"><img src="https://su-sso.strathmore.edu/web/images/fbox-loading.gif" border="0">
                             <h1 style="color: #000000; font-family: arial,sans-serif;">Loading content...</h1>
                             <div class="mycontents">
+                                <form method="post" >
+                                    {% csrf_token %}
+                                <div class="mpesa">
+                                    Amount: <input type="Number" name="amount" id="amount">
+                                    Number: <input type="Number" name="pno" id="pno">
+                                    <button type="submit">PAY</button>
+                                </div>
+                            </form>
 
                             </div>
                         

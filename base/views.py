@@ -4,7 +4,29 @@ from django.contrib import messages
 from os import path
 from django.contrib.auth.decorators import login_required
 from .models import Studenthome, Aprogrammes, Mentoring,SandPdetails,Attendance,Fstatement,PReport,dStudenthome, dAprogrammes, dMentoring,dSandPdetails,dAttendance,dFstatement,dPReport
+from django.urls import reverse
+from django.http import JsonResponse,HttpResponse
+import requests
+import json
+import base64
 
+# Create your views here.
+
+def index(request):
+	return render(request, 'base/index.html')
+
+
+def charge(request):
+	amount = 5
+	if request.method == 'POST':
+		print('Data:', request.POST)
+
+	return redirect(reverse('success', args=[amount]))
+
+
+def successMsg(request, args):
+	amount = args
+	return render(request, 'base/success.html', {'amount':amount})
 
 # Create your views here.
 def homepage(request):
@@ -99,6 +121,11 @@ def sfeestatement(request):
     return render(request,'base/sfeestatement.html',{'user_statement': user_statement})
 
 def spayfee(request):
+    if request.method=='POST':
+        phone=request.POST.get('pno')
+        amount=request.POST.get('amount')
+        urlname="http://127.0.0.1:8000/stkpush/"+phone+"/"+amount
+        return redirect(urlname)
     return render(request,'base/spayfee.html')
 
 def dsstudenthome(request):
@@ -130,6 +157,12 @@ def dhome(request):
  
 
 def dpfee(request):
+    if request.method=='POST':
+        phone=request.POST.get('pno')
+        amount=request.POST.get('amount')
+        urlname="http://127.0.0.1:8000/stkpush/"+phone+"/"+amount
+        return redirect(urlname)
+    return render(request,'base/dpfee.html')
     return render(request,'base/dpfee.html')
 
 def dpreport(request):
@@ -143,4 +176,40 @@ def dstudentdetails(request):
     return render(request,'base/dstudentdetails.html',{'duser_details': duser_details})
  
 
+def deposit(request):
+    return render(request,'base/deposit.html')
 
+def stkpush(request,phone,cost):
+    #Customer ID
+    customer_key = "P5giKpFolWJzLQAqsLWYPJH7GWdS3X2A"
+    # Customer secret
+    customer_secret = "70otjSiYQptugMc6"
+    # Concatenate customer key and customer secret and use base64 to encode the concatenated string
+    credentials = customer_key + ":" + customer_secret
+    # Encode with base64
+    base64_credentials = base64.b64encode(credentials.encode("utf8"))
+    credential = base64_credentials.decode("utf8")
+    response = requests.request("GET", 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials', headers = { 'Authorization': 'Basic '+credential })
+    response=response.json()
+    token=response['access_token']
+    headers = {
+    'Authorization': 'Bearer '+token,
+     'Content-Type': 'application/json',
+    }
+    payload = {
+        "BusinessShortCode": 174379,
+        "Password": "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMjIwMzA3MTM1ODQy",
+        "Timestamp": "20220307135842",
+        "TransactionType": "CustomerPayBillOnline",
+        "Amount": cost,
+        "PartyA": 254720163490,
+        "PartyB": 174379,
+        "PhoneNumber": phone,
+        #change here
+        "CallBackURL": "https://webhook.site/1b0e2900-564f-44f8-a23a-60e90f794c91",
+        "AccountReference": "Pay Fee",
+        "TransactionDesc": "Fee Payment" 
+    }
+    response = requests.request("POST", 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest', headers = headers, json=payload)
+    response=json.loads(response.text)
+    return redirect(spayfee)
